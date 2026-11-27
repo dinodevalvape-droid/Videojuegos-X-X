@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Videojuegos</title>
+    <!-- Google Fonts para un estilo gamer moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --panel-color: #1f2833;
+            --accent-cyan: #66fcf1;
+            --accent-green: #45a29e;
+            --text-main: #c5c6c7;
+            --text-white: #ffffff;
+            --glow: 0 0 15px rgba(102, 252, 241, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            background: linear-gradient(180deg, #11141d 0%, var(--bg-color) 100%);
+            border-bottom: 2px solid rgba(102, 252, 241, 0.2);
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--text-white);
+            text-shadow: var(--glow);
+            letter-spacing: 2px;
+        }
+
+        /* Barra de Navegación / Botones (Apartados) */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 1.5rem;
+            background: rgba(31, 40, 51, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .nav-btn {
+            font-family: 'Orbitron', sans-serif;
+            background-color: var(--panel-color);
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-green);
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background-color: var(--accent-cyan);
+            color: var(--bg-color);
+            box-shadow: var(--glow);
+            transform: translateY(-3px);
+        }
+
+        /* Contenido Principal / Secciones */
+        main {
+            flex: 1;
+            max-width: 900px;
+            width: 90%;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        .section-content {
+            display: none;
+            background: var(--panel-color);
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 252, 241, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        .section-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-left: 5px solid var(--accent-cyan);
+            padding-left: 15px;
+        }
+
+        /* Contenedor de la letra única */
+        .info-letter {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-align: center;
+            margin: 2rem 0;
+            text-shadow: 0 0 20px rgba(102, 252, 241, 0.6);
+        }
+
+        /* Animación de transición */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            border-top: 1px solid rgba(69, 162, 158, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MUNDO DE VIDEOJUEGOS X/X</h1>
+    </header>
+
+    <!-- Menú con los 5 apartados (1 de Inicio + 4 Botones de Juegos) -->
+    <nav>
+        <button class="nav-btn active" onclick="showSection('inicio', this)">WAR THUNDER</button>
+        <button class="nav-btn" onclick="showSection('juego1', this)">AMONG US</button>
+        <button class="nav-btn" onclick="showSection('juego2', this)">FORTNITE</button>
+        <button class="nav-btn" onclick="showSection('juego3', this)">Minecraft</button>
+        <button class="nav-btn" onclick="showSection('juego4', this)">GTA VI</button>
+    </nav>
+
+    <main>
+        <!-- Apartado 1: Inicio -->
+        <section id="inicio" class="section-content active">
+            <h2>War Thunder es un videojuego multijugador gratuito de combate militar. Permite controlar aviones, tanques, barcos y helicópteros en batallas inspiradas en diferentes épocas y conflictos históricos.</h2>
+            <p>War Thunder maneja principalmente tres modalidades de juego: Arcade, Realista y Simulador. Cada una ofrece un nivel diferente de dificultad y realismo.
+
+Batallas Arcade: Son rápidas y sencillas, con ayudas para apuntar, identificar enemigos y controlar los vehículos. Son ideales para principiantes.
+
+Batallas Realistas: Ofrecen menos ayudas y requieren más estrategia, precisión y conocimiento de los vehículos.
+
+Batallas de Simulador: Buscan una experiencia más realista, con controles difíciles, poca asistencia y mayor importancia de la habilidad del jugador.
+
+También cuenta con modos cooperativos contra la inteligencia artificial, eventos especiales y batallas de aviones, tanques, barcos y helicópteros.</p>
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFoCNIrxpRbxttQkuyHrQ37qd-h_DuQtG3MxsOVOgLEg&s" alt="calentamiento global">
+          <div class="info-letter"></div>
+        </section>
+
+        <!-- Apartado 2: amogas 2077 -->
+        <section id="juego1" class="section-content">
+            <h2>Amongas es buenardo</h2>
+            <p>Among Us es un videojuego party multijugador en línea de deducción social desarrollado por Innersloth en 2018. Ambientado en naves espaciales, bases o planetas, enfrenta a tripulantes que deben completar tareas de mantenimiento mientras intentan identificar a impostores que sabotean y asesinan en secreto.</p>
+            <div class="info-letter"></div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6yE2CSYyowVbMm8orAHyeKv04bkcTx3FYGTcS1sb6xSEnP9NMIH-PZZJpRFjhI4gZUHd-E0kZy6At9lZOF_W1BkacznaAxMWwRn34nQ&s=10" alt="calentamiento global">
+            <div class="info-letter"></div>
+        </section>
+
+        <!-- Apartado 3: folnite -->
+        <section id="juego2" class="section-content">
+            <h2>En la tormenta todos corren, pero solo quien construye su propio destino logra la Victoria Magistral</h2>
+            <p>El competitivo de Fortnite es uno de los escenarios más exigentes de los esports, donde no basta con tener buena puntería: la clave está en construir, editar y tomar decisiones en milésimas de segundo mientras la tormenta cierra el mapa. Es una prueba pura de improvisación y control bajo presión extrema.
+Dentro de su historia, la comunidad recuerda con especial cariño dos etapas que marcaron la cima del juego: el Capítulo 2 - Temporada 8, recordado por su equilibrio competitivo y finales de partida inolvidables, y el Capítulo 3, que revolucionó la movilidad y llevó las mecánicas de los jugadores a otro nivel.
+Hoy en día, la escena mundial de la FNCS está dominada por una élite que sigue rompiendo récords, liderada por figuras actuales como los campeones mundiales SwizzY y Pixie, junto a potencias indiscutibles como Peterbot, Pollo, vic0 y Malibuca, quienes mantienen vivo el espectáculo demostrando que en la isla gana quien mejor domina el caos.</p>
+            <div class="info-letter"></div>
+            <img src="https://i.ytimg.com/vi/KkkPFlcl8gk/hqdefault.jpg?v=6ab67839" alt="calentamiento global">
+            <div class="info-letter">F</div>
+        </section>
+
+        <!-- Apartado 4: Minecraft -->
+        <section id="juego3" class="section-content">
+            <h2>Minecraft el mundo abierto</h2>
+            <p>Minecraft es un videojuego de mundo abierto del género de construcción y supervivencia, creado originalmente por Markus "Notch" Persson y lanzado por Mojang Studios en 2011.
+
+Su propuesta principal es la libertad total: los jugadores exploran un universo infinito y generado proceduralmente hecho de bloques tridimensionales. En él se pueden recolectar materiales, fabricar herramientas, construir desde refugios sencillos hasta complejos castillos, explorar cuevas y enfrentarse a diversas criaturas.
+
+Cuenta principalmente con dos modos de juego: Supervivencia (donde debes gestionar recursos, salud y hambre mientras sobrevives a los monstruos nocturnos) y Creativo (con recursos ilimitados para dar rienda suelta al diseño y la arquitectura sin restricciones). Gracias a su estilo visual pixelado y su enfoque inagotable, se ha convertido en el videojuego más vendido de todos los tiempos.</p>
+            <div class="info-letter"></div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbQDRdHxT7QJqIDlNU9RmcuyyW7TIE5AymCgTE6szgRA&s=10" alt="calentamiento global">
+            <div class="info-letter"></div>
+        </section>
+
+        <!-- Apartado 5: GTA VI -->
+        <section id="juego4" class="section-content">
+            <h2>Grand Theft Auto VI "EL TACON"</h2>
+            <p>Grand Theft Auto VI regresa a Vice City, una ciudad inspirada en Miami, y amplía el escenario hacia Leonida, una región ficticia basada en Florida. La historia sigue a Jason Duval y Lucía Caminos, una pareja de delincuentes que intenta salir adelante mientras se ve atrapada en situaciones cada vez más peligrosas.</p>
+            <div class="info-letter"></div>
+            <img src=https://tse2.mm.bing.net/th/id/OIF.hXd1nWphi4mrczDmj1QrPA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3 alt="calentamiento global">
+            <div class="info-letter"></div>
+            <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Amklkn-EUTo?si=2K1NPqLDCGYsIPZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Garcia Hernandez, Alvarez Piña, Duran Barrer, Flores Zavala, Gomez de la Rosa. 
+            CONALEP ESTADO DE MEXICO
+        </p>
+    </footer>
+
+    <!-- Script JavaScript para alternar entre apartados fluidamente -->
+    <script>
+        function showSection(sectionId, btnElement) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Quitar la clase activa de todos los botones
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Mostrar la sección seleccionada y activar su botón correspondiente
+            document.getElementById(sectionId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
